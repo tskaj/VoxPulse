@@ -1,0 +1,9 @@
+Flask==2.1.0
+pydub==0.26.2
+numpy==1.21.0
+librosa==0.8.1
+scikit-learn==0.24.2
+nltk==3.6.5
+gTTS==2.2.3
+SpeechRecognition==3.8.1
+langdetect==1.0.9
