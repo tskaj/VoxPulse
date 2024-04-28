@@ -5,40 +5,50 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <div class="container">
-        <h1>Upload Audio File</h1>
-        <form method="post" enctype="multipart/form-data">
-            <input type="file" name="file">
-            <br>
-            <label><input type="checkbox" name="output" value="summary"> Summary</label><br>
-            <label><input type="checkbox" name="output" value="transcription"> Transcription</label><br>
-            <label><input type="checkbox" name="output" value="identification"> Identification</label><br>
-            <button type="submit">Upload</button>
-        </form>
-        {% if summary %}
-        <div class="output">
-            <h2>Output:</h2>
-            {% if 'summary' in request.form.getlist('output') %}
-            <div class="output-item">
-                <h3>Summary:</h3>
-                <p>{{ summary }}</p>
-            </div>
-            {% endif %}
-            {% if 'transcription' in request.form.getlist('output') %}
-            <div class="output-item">
-                <h3>Transcription:</h3>
-                <p>{{ transcription }}</p>
-                <!-- Add transcription output here -->
-            </div>
-            {% endif %}
-            {% if 'identification' in request.form.getlist('output') %}
-            <div class="output-item">
-                <h3>Language Identification:</h3>
-                <p>{{ language }}</p>
+    <header>
+        <h1>VoxPulse</h1>
+    </header>
+    <div class="image-container">
+        <img src="{{ url_for('static', filename='images/li.jpg') }}" class="centered-blurred-image" alt="Blurred Image" class="upper-lower-blur-mask" alt="upper lower blur">
+        <div class="container">
+        
+            <h2 style="text-align:center:">Upload Audio File</h2>
+            <form method="post" enctype="multipart/form-data">
+                <div class="file-input-container">
+                    <input type="file" name="file" class="file-input">
+                </div>
+                <br>
+                <label><input type="checkbox" name="output" value="summary"> &nbsp;Summary&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><br>
+                <label><input type="checkbox" name="output" value="transcription"> &nbsp;Transcription</label><br>
+                <label><input type="checkbox" name="output" value="identification"> &nbsp;Identification</label><br>
+                <button type="submit">Upload</button>
+            </form>
+            {% if summary %}
+            <div class="output">
+                <h2>Output:</h2>
+                {% if 'summary' in request.form.getlist('output') %}
+                <div class="output-item">
+                    <h3>Summary:</h3>
+                    <p>{{ summary }}</p>
+                </div>
+                {% endif %}
+                {% if 'transcription' in request.form.getlist('output') %}
+                <div class="output-item">
+                    <h3>Transcription:</h3>
+                    <p>{{ transcription }}</p>
+                </div>
+                {% endif %}
+                {% if 'identification' in request.form.getlist('output') %}
+                <div class="output-item">
+                    <h3>Language Identification:</h3>
+                    <p>{{ language }}</p>
+                </div>
+                {% endif %}
             </div>
             {% endif %}
         </div>
-        {% endif %}
+    
     </div>
+  
 </body>
 </html>
