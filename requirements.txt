@@ -1,0 +1,13 @@
+Flask==2.1.0
+Werkzeug==2.0.3
+pydub==0.25.1
+numpy==1.20.3
+librosa==0.8.1
+scikit-learn==0.24.2
+nltk==3.6.5
+gTTS==2.2.3
+SpeechRecognition==3.8.1
+langdetect==1.0.9
+numba==0.55.2
+# Additions
+ffmpeg-python==0.2.0   # for handling audio with ffmpeg
